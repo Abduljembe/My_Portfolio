@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Tracker Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <h1>IP Tracker Dashboard</h1>
+        <p class="subtitle">
+          Enter an IP address and view public metadata. Your recent lookups are stored locally in
+          this browser.
+        </p>
+      </header>
+
+      <section class="panel">
+        <form id="ip-form" class="ip-form">
+          <label for="ip-input">IP address</label>
+          <div class="input-row">
+            <input
+              id="ip-input"
+              name="ip"
+              type="text"
+              placeholder="Example: 8.8.8.8 or 2001:4860:4860::8888"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="lookup-btn">Track IP</button>
+          </div>
+        </form>
+
+        <div class="actions">
+          <button id="my-ip-btn" type="button" class="secondary">Use My Current IP</button>
+          <button id="clear-history-btn" type="button" class="ghost">Clear History</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section id="result" class="result hidden" aria-live="polite">
+        <h2>Tracked IP Details</h2>
+        <dl id="result-list"></dl>
+      </section>
+
+      <section class="history">
+        <h2>Recent Tracking History</h2>
+        <ul id="history-list" class="history-list">
+          <li class="empty">No IP lookups yet.</li>
+        </ul>
+      </section>
+
+      <p class="note">
+        Data source: <code>ipapi.co</code>. This app shows approximate public IP metadata (not exact
+        physical location).
+      </p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
