@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Info Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>IP Address Info Viewer</h1>
+      <p class="subtitle">
+        Enter an IP address to view public metadata (network, city, country, timezone,
+        and ISP/organization when available).
+      </p>
+
+      <form id="ip-form" class="ip-form">
+        <label for="ip-input">IP address</label>
+        <div class="input-row">
+          <input
+            id="ip-input"
+            name="ip"
+            type="text"
+            placeholder="Example: 8.8.8.8"
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Lookup</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" aria-live="polite"></p>
+
+      <section id="result" class="result hidden" aria-live="polite">
+        <h2>Result</h2>
+        <dl id="result-list"></dl>
+      </section>
+
+      <p class="note">
+        Note: This interface uses the public API at <code>ipapi.co</code>. It does not
+        provide exact physical location.
+      </p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
